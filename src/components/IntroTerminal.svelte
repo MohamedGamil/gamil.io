@@ -1,31 +1,32 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { introCompleted } from "../lib/store";
+    import { initMagicMouse } from "../lib/utils";
 
-    const allowAutoSkip: boolean = import.meta.env.VITE_ALLOW_SKIPPING_INTRO === "1";
+    const allowAutoSkip: boolean = ~~import.meta.env.VITE_ALLOW_SKIPPING_INTRO === 1;
+    const currentVersion: boolean = import.meta.env.VITE_CURRENT_VERSION ?? '1.0.0';
     const autoSkipKey: string = '_intro_autoskip';
 
+    let introFixedWrap: any;
+    let introTermynalRootWrap: any;
     let introTermynalWrap: any;
     let skipIntroBtnWrap: any;
     let introTimer: any;
 
-    const initMagicMouse = () => {
-        const options: any = {
-            outerStyle: "disable",
-            hoverEffect: "pointer-overlay",
-            hoverItemMove: false,
-            defaultCursor: false,
-            outerWidth: 40,
-            outerHeight: 40
-        };
-
-        window.magicMouse(options);
-    };
-
     const skipIntro = (fast = true) => {
         introTermynalWrap.className = 'animate__animated ';
         introTermynalWrap.className += true === fast
-            ? 'animate__hinge'
-            : 'animate__zoomOutDown';
+            ? 'animate__bounceOutDown'
+            : 'animate__bounceOutDown';
+
+        introTermynalWrap.addEventListener('animationend', () => {
+            introFixedWrap.className = 'hidden';
+            introTermynalRootWrap.className = 'hidden';
+        });
+
+        setTimeout(() => {
+            introCompleted.update(() => true);
+        }, 300);
     };
 
     const skipIntroHandler = (event: any) => {
@@ -37,6 +38,10 @@
     };
 
     const hideSkipIntro = () => {
+        if (!skipIntroBtnWrap) {
+            return;
+        }
+
         skipIntroBtnWrap.className = '';
         skipIntroBtnWrap.className = 'animate__animated animate__fadeOutDown';
 
@@ -50,50 +55,50 @@
     };
 
     const shouldSkip = () => {
-        return localStorage.getItem(autoSkipKey) === '1';
+        return allowAutoSkip && localStorage.getItem(autoSkipKey) === '1';
     };
 
     onMount(() => {
         initMagicMouse();
 
-        const termynal = new window.Termynal("#introTermynal");
+        const introTermynal = new window.Termynal("#introTermynal");
         const skipper = (fast = false) => {
             hideSkipIntro();
             skipIntro(fast);
         };
 
-        if (allowAutoSkip && shouldSkip()) {
-            return setTimeout(() => skipper(true), 1200);
+        if (shouldSkip()) {
+            return setTimeout(() => skipper(true), 650);
         }
 
-        introTimer = setTimeout(() => skipper(), 7400);
+        introTimer = setTimeout(() => skipper(), 3600);
     });
 </script>
 
-<div class="fixed bottom-0 right-0 z-10 fx">
+<div class="fixed bottom-0 right-0 z-50 fx" bind:this={introFixedWrap} class:hidden={shouldSkip()}>
     <div class="flex align-items-end p-10">
         <div bind:this={skipIntroBtnWrap} class="animate__animated animate__fadeInUp">
-            <a on:click={skipIntroHandler} href="#" class="inline-flex items-center rounded-md bg-slate-300 px-4 py-2 text-xs font-semibold text-slate-700 hover:text-slate-900 ring-1 ring-inset ring-slate-700/20 animate__animated animate__tada animate__delay-2s magic-hover magic-hover__square">
-                Skip intro &gt;&gt;
+            <a on:click={skipIntroHandler} href="#" class="inline-flex items-center rounded-md bg-slate-300 px-4 py-2 text-xs font-semibold text-slate-700 hover:text-slate-900 ring-1 ring-inset ring-slate-700/20 animate__animated animate__tada animate__delay-2s magic-hover">
+                Skip &gt;&gt;
             </a>
         </div>
     </div>
 </div>
 
-<div class="absolute top-0 left-0 w-full h-full overflow-hidden flex items-center justify-center fx">
-    <div class="animate__animated animate__zoomInUp" bind:this={introTermynalWrap}>
+<div class="absolute z-40 top-0 left-0 w-full h-full overflow-hidden flex items-center justify-center fx" bind:this={introTermynalRootWrap}>
+    <div class="animate__animated animate__fadeIn" bind:this={introTermynalWrap}>
         <div
             id="introTermynal"
             data-termynal
-            data-ty-startDelay="1200"
-            data-ty-lineDelay="400"
-            data-ty-typeDelay="40">
-            <span data-ty="input">npm install gamil.io --global</span>
+            data-ty-startDelay="400"
+            data-ty-lineDelay="50"
+            data-ty-typeDelay="32">
+            <span data-ty="input">npm install gamil.io</span>
             <span data-ty="input">npm run start</span>
-            <span data-ty data-ty-delay="500">Compiling...</span>
-            <span data-ty="progress" data-ty-progressLength="26"></span>
-            <span data-ty data-ty-prompt=">>">
-                Server started at: <strong class="text-blue-500 underline decoration-solid magic-hover magic-hover__square">https://gamil.io</strong>
+            <span data-ty data-ty-delay="200">Bundling...</span>
+            <span data-ty="progress" data-ty-progressLength="22"></span>
+            <span data-ty="input" data-ty-prompt="➡️" class="text-orange-400 magic-hover">
+                Serving gamil.io v{currentVersion}
             </span>
         </div>
     </div>

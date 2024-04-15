@@ -1,0 +1,51 @@
+.landing-wrap {
+    @apply relative will-change-transform;
+    max-width: var(--root-container-max-width);
+    margin: 0 auto;
+    transition: 0.4s linear;
+    transform-origin: 50% 0;
+    transform: scaleY(1.1) scaleX(1.33) translateZ(0);
+}
+
+.side-wrap,
+.landing-inner-wrap {
+    min-height: 100vh;
+}
+
+.landing-inner-wrap {
+    max-width: var(--container-max-width);
+    background-color: var(--color-inner-container-bg);
+}
+
+.side-wrap,
+.landing-inner-wrap,
+.container-boxed {
+    @apply will-change-transform;
+    transition: 0.6s ease-in-out;
+}
+
+.landing-inner-wrap,
+.container-boxed {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.side-wrap {
+    @apply fixed z-50 top-0;
+}
+
+.side-wrap,
+.container-boxed {
+    opacity: 0;
+}
+
+.landing-wrap.usher {
+    /* todo: add animation of staggered growth */
+    transform: scaleY(1) scaleX(1) translateZ(0);
+}
+
+.landing-wrap.usher .side-wrap,
+.landing-wrap.usher .container-boxed {
+    transition-delay: 0.7s;
+    opacity: 1;
+}

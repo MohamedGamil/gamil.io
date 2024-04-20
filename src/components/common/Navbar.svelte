@@ -1,6 +1,6 @@
 <script lang="ts">
-    // let isAnimating =
-    // isAnimated
+    import { link } from 'svelte-spa-router';
+    import active from 'svelte-spa-router/active';
 </script>
 
 <header class="no-select absolute inset-x-0 top-0 z-50 no-select">
@@ -10,7 +10,7 @@
             aria-label="Global"
         >
             <div class="flex lg:flex-1 pt-1">
-                <a href="#" class="-m-1.5 p-1.5 flex space-x-2 magic-hover">
+                <a href="/" class="block -m-1.5 p-1.5 flex space-x-2 magic-hover" use:link>
                     <span class="h-8 w-auto">
                         <svg
                             width="16"
@@ -55,29 +55,29 @@
                 </button>
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
-                <a
-                    href="#"
+                <a use:link use:active
+                    href="/"
                     class="active text-sm font-semibold leading-6 magic-hover"
                     >home</a
                 >
-                <a
-                    href="#"
+                <a use:link use:active
+                    href="/works"
                     class="text-sm font-semibold leading-6 magic-hover"
                     >works</a
                 >
-                <a
-                    href="#"
+                <a use:link use:active
+                    href="/about"
                     class="text-sm font-semibold leading-6 magic-hover"
                     >about</a
                 >
-                <a
-                    href="#"
+                <a use:link use:active
+                    href="/contact"
                     class="text-sm font-semibold leading-6 magic-hover"
                     >contact</a
                 >
             </div>
             <!-- <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a
+                <a use:link
                     href="#"
                     class="text-sm font-semibold leading-6 text-gray-900"
                     >Log in <span aria-hidden="true">&rarr;</span></a

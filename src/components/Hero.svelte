@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { link } from 'svelte-spa-router';
+
     import PersonalPic from '../assets/personal-pic.png';
     import Dots from './shapes/Dots.svelte';
 </script>
@@ -16,9 +18,9 @@
                 <p class="mt-6 text-sm _leading-8 text-second lg:pr-28">
                     I develop digital solutions that boost business innovation and deliver tangible results.
                 </p>
-                <div class="mt-8 flex items-center justify-start gap-x-6">
-                    <a
-                        href="#"
+                <div class="mt-6 flex items-center justify-start gap-x-6">
+                    <a use:link
+                        href="/contact"
                         class="cta magic-hover"
                         >Let's Talk</a
                     >
@@ -33,7 +35,7 @@
                     <span class="istatus"></span>
                     <span class="text-second text-xs">
                         Currently working at
-                        <a href="#" class="text-white font-semibold decoration-solid underline underline-offset-2 magic-hover">
+                        <a href="https://glasshub.ai" class="text-white font-semibold decoration-solid underline underline-offset-2 magic-hover" target="_blank">
                             GlassHUB
                         </a>
                     </span>

@@ -1,6 +1,6 @@
 :root {
     --color-bg: #2C2F43;
-    --color-inner-container-bg: rgba(255, 255, 255, 0.02);
+    --color-inner-container-bg: #303447;
     --color-window-bg: #222331;
     --color-text: #fff;
     --color-prime: #F96F0D;
@@ -11,13 +11,15 @@
     --animate-duration: 0.8s;
 
     font-family: 'Fira Code', 'Fira Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* font-size: 16px; */
     line-height: 1.5;
     font-weight: 400;
 
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    color: var(--color-text);
+    background-color: var(--color-bg);
 
+    cursor: none !important;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -30,6 +32,8 @@ html {
 }
 
 body {
+    max-height: 100vh;
+    overflow-y: hidden;
     cursor: none !important;
     padding: 0; margin: 0;
     background: var(--color-bg);
@@ -40,23 +44,33 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+body.loaded {
+    max-height: unset;
+    overflow-y: unset;
+}
+
 code,
 pre {
     font-family: 'Fira Code', monospace;
 }
 
-#magicPointer {
-    z-index: 99999;
+a {
+    @apply transition-all;
+    cursor: none !important;
+    color: var(--color-text);
 }
 
-#magicPointer:last-of-type {
-    /* display: none; */
-}
-
-/* body #magicPointer.pointer-overlay {
+/*
+body #magicPointer.pointer-overlay {
     width: 44px;
     height: 44px;
-} */
+}
+*/
+
+
+/* = ===================
+   = Custom classes
+   = =================== */
 
 .magic-hover {
     transition: all .2s;
@@ -75,34 +89,141 @@ pre {
     background-color: var(--color-bg);
 }
 
+.border-1 {
+    border-width: 1px;
+}
+
+
+/* = ===================
+   = Custom elements
+   = =================== */
+
 .cta {
-    @apply text-sm font-medium transition-all
+    @apply font-medium transition-all
         hover:bg-slate-700
         focus-visible:outline
         focus-visible:outline-2
         focus-visible:outline-offset-2;
 
-    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 500;
     padding: 8px 16px;
     background: linear-gradient(263.43deg, rgba(249, 111, 13, 0.12) 0%, rgba(101, 112, 132, 0.12) 100%);
     border: 1px solid #F96F0D;
     border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.section-header {
+    @apply relative pt-12 pb-8 flex items-center;
+}
+
+.section-title {
+    @apply relative flex-grow;
+
+    &::after {
+        @apply absolute z-0 top-0 left-0;
+        content: '';
+        margin-top: 26px;
+        height: 1px;
+        width: 50%;
+        background-color: var(--color-prime);
+    }
+
+    h2 {
+        @apply pr-3 w-fit relative z-10 font-medium lowercase;
+        font-size: 32px;
+        color: var(--color-text);
+        background-color: var(--color-inner-container-bg);
+
+        &::before {
+            content: "#";
+            color: var(--color-prime);
+        }
+    }
+}
+
+.section-header.has-link .section-title::after {
+    width: 80%;
+}
+
+.simple-view-more {
+    @apply font-medium;
+    font-size: 18px;
+    background-color: var(--color-inner-container-bg);
+}
+
+.cards {
+    @apply grid pb-4 gap-3;
+    grid-template-columns: 33fr 33fr 33fr;
+
+    &.cols-4 {
+        grid-template-columns: 25fr 25fr 25fr 25fr;
+    }
 }
 
 .card {
-    padding: 2em;
+    @apply border-solid;
+    border-radius: 8px;
+    border-width: 1px;
+    border-color: var(--color-second);
+    box-sizing: border-box;
 }
 
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
+.card-figure {
+    @apply overflow-hidden;
+    border-radius: 8px 8px 0 0;
 }
 
-a {
-    cursor: none;
+.card-title {
+    @apply px-2 pt-2 font-medium;
+    font-size: 24px;
+
+    &.sm {
+        @apply py-1;
+        font-size: 16px;
+    }
 }
 
-/* =
+.card-content {
+    @apply px-2 pt-1;
+    color: var(--color-second);
+    font-size: 16px;
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    code {
+        /* @apply text-xs; */
+        font-size: 14px;
+    }
+
+    &.border-top {
+        @apply border-solid py-2;
+        border-width: 1px 0 0;
+        border-color: var(--color-second);
+    }
+}
+
+.card-footer {
+    @apply mt-4 px-2 pb-4;
+}
+
+.tags {
+    @apply flex flex-wrap p-2 border-solid text-center gap-x-3 gap-y-1;
+    border-width: 1px 0;
+    border-color: var(--color-second);
+
+    .tag {
+        @apply text-slate-400 hover:text-slate-200;
+        font-size: 16px;
+    }
+}
+
+
+/* = ===================
    = Custom theme colors
    = =================== */
 
@@ -137,4 +258,17 @@ a {
     button {
         background-color: #f9f9f9;
     } */
+}
+
+
+/* = ===================
+   = Custom plugins
+   = =================== */
+
+#magicPointer {
+    z-index: 99999;
+}
+
+#magicPointer:last-of-type {
+    /* display: none; */
 }

@@ -31,11 +31,13 @@
 }
 
 .side-wrap {
-    @apply fixed z-50 top-0;
+    @apply fixed z-50 top-0 overflow-hidden;
+    min-width: 120px;
 }
 
 .side-wrap,
 .container-boxed {
+    transition-delay: 0.7s;
     opacity: 0;
 }
 
@@ -46,6 +48,10 @@
 
 .landing-wrap.usher .side-wrap,
 .landing-wrap.usher .container-boxed {
-    transition-delay: 0.7s;
     opacity: 1;
+}
+
+.landing-wrap.unloaded .side-wrap,
+.landing-wrap.unloaded .container-boxed {
+    opacity: 0;
 }

@@ -1,20 +1,19 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import Header from "../components/Header.svelte";
     import Hero from "../components/Hero.svelte";
-    import Quote from "../components/Quote.svelte";
     import Works from "../components/Works.svelte";
     import Skills from "../components/Skills.svelte";
+    import About from "../components/About.svelte";
 
     onMount(() => {
         // initMagicMouse();
     });
 </script>
 
-<!-- <Header /> -->
 <!-- <Hero /> -->
-<!-- <Quote /> -->
 <!-- <Works /> -->
+<div class="pt-12"></div>
+<About full={true} />
 <Skills />
 
 <style>

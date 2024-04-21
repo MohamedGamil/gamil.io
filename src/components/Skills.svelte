@@ -109,14 +109,17 @@
                         Tools
                     </h3>
                     <div class="card-content border-top">
+                        <!-- <code>NeoVim</code> -->
                         <code>VSCode</code>
-                        <code>ChatGPT-4</code>
+                        <!-- <code>ChatGPT-4</code> -->
                         <code>Docker</code>
                         <code>Linux</code>
-                        <code>NodeJS</code>
-                        <code>Figma</code>
                         <code>Git</code>
-                        <code>Firebase</code>
+                        <code>NodeJS</code>
+                        <code>Deno</code>
+                        <code>Yarn</code>
+                        <code>Figma</code>
+                        <!-- <code>Firebase</code> -->
                     </div>
                 </div>
                 <div class="card">

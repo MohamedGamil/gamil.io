@@ -4,12 +4,14 @@
     margin: 0 auto;
     transition: 0.4s linear;
     transform-origin: 50% 0;
-    transform: scaleY(1.1) scaleX(1.33) translateZ(0);
+    transform: scaleY(1) scaleX(1.22) translateZ(0);
 }
 
 .side-wrap,
 .landing-inner-wrap {
+    @apply isolate;
     min-height: 100vh;
+    height: -webkit-fill-available;
 }
 
 .landing-inner-wrap {
@@ -48,10 +50,12 @@
 
 .landing-wrap.usher .side-wrap,
 .landing-wrap.usher .container-boxed {
+    transition-delay: 0.7s;
     opacity: 1;
 }
 
 .landing-wrap.unloaded .side-wrap,
 .landing-wrap.unloaded .container-boxed {
+    transition-delay: 0;
     opacity: 0;
 }

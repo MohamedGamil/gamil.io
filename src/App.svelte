@@ -5,9 +5,10 @@
     import { introCompleted } from "./lib/store";
     import { reInitMagicMouse } from './lib/utils';
     import IntroTerminal from "./components/IntroTerminal.svelte";
-    import Header from "./components/Header.svelte";
+    import Header from "./components/common/Header.svelte";
     import SideWrapLeft from "./components/common/SideWrapLeft.svelte";
     import SideWrapRight from "./components/common/SideWrapRight.svelte";
+    import Footer from "./components/common/Footer.svelte";
 
     const dispatch = createEventDispatcher();
     let isFirstPageLoad: boolean = true;
@@ -49,7 +50,7 @@
                 return;
             }
 
-            // console.info({introHasCompleted, dispatched});
+            console.info('Root', {introHasCompleted, dispatched});
 
             dispatched = true;
             dispatch('usher', { introHasCompleted });
@@ -57,6 +58,20 @@
 
             landingWrap.className += ' usher';
             document.body.className += ' loaded';
+        });
+
+        document.addEventListener('click', function(e) {
+            const circle = document.createElement('div');
+            circle.classList.add('cursor-ripple');
+            circle.style.width = circle.style.height = '100px';
+            circle.style.left = `${e.clientX - 50}px`;
+            circle.style.top = `${e.clientY - 50}px`;
+
+            document.body.appendChild(circle);
+
+            circle.addEventListener('animationend', function() {
+                circle.remove();
+            });
         });
     });
 </script>
@@ -68,7 +83,7 @@
         <div class="landing-inner-wrap">
             <Header />
             <Router {routes} on:routeLoading={routeEvent} on:routeLoaded={routeEvent} />
-            <!-- Todo: Footer -->
+            <Footer />
         </div>
         <SideWrapRight/>
     </div>

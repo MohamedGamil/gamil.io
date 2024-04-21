@@ -1,24 +1,47 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
+    import { introCompleted } from '../../lib/store';
     import GithubIcon from '../icons/Github.svelte';
     import DribbbleIcon from '../icons/Dribbble.svelte';
     import LinkedinIcon from '../icons/Linkedin.svelte';
+
+    let socialWrap: any = null;
+    let linkedinLink: any = null;
+    let githubLink: any = null;
+    let dribbbleLink: any = null;
+
+    onMount(() => {
+        introCompleted.subscribe((introHasCompleted) => {
+            // console.info('Sidebar', {introHasCompleted});
+
+            if (false === introHasCompleted) {
+                return;
+            }
+
+            socialWrap.className += ' animate__animated animate__delay-1s animate__fadeInLeft';
+            linkedinLink.className += ' animate__animated animate__fadeInLeft animate__delay-1s';
+            dribbbleLink.className += ' animate__animated animate__fadeInLeft animate__delay-1.5s';
+            githubLink.className += ' animate__animated animate__fadeInLeft animate__delay-2s';
+        });
+    });
 </script>
 
-<div class="side-wrap side-left left-0">
-    <div class="side-socials animate__animated animate__fadeInLeft animate__delay-1s">
+
+<div class="side-wrap side-left isolate left-0">
+    <div class="side-socials" bind:this={socialWrap}>
         <ul class="absolute bottom-0 left-0 pt-2 bg-default">
             <li>
-                <a href="https://www.linkedin.com/in/mogamil/" class="magic-hover block p-1 mb-2 animate__animated animate__fadeInLeft animate__delay-1s" target="_blank">
+                <a href="https://www.linkedin.com/in/mogamil/" class="magic-hover block p-1 mb-2" target="_blank"  bind:this={linkedinLink}>
                     <LinkedinIcon />
                 </a>
             </li>
             <li>
-                <a href="https://dribbble.com/Gemy" class="magic-hover block p-1 mb-2 animate__animated animate__fadeInLeft animate__delay-1.5s" target="_blank">
+                <a href="https://dribbble.com/Gemy" class="magic-hover block p-1 mb-2" target="_blank"  bind:this={dribbbleLink}>
                     <DribbbleIcon />
                 </a>
             </li>
             <li>
-                <a href="https://github.com/MohamedGamil/" class="magic-hover block p-1 mb-2 animate__animated animate__fadeInLeft animate__delay-2s" target="_blank">
+                <a href="https://github.com/MohamedGamil/" class="magic-hover block p-1 mb-2" target="_blank"  bind:this={githubLink}>
                     <GithubIcon />
                 </a>
             </li>
@@ -46,9 +69,10 @@
     </div>
 </div>
 
+
 <style>
     .side-socials {
-        @apply relative top-0 left-0 hidden lg:block;
+        @apply relative top-0 left-0 z-10 hidden lg:block;
         margin-left: 16px;
         width: 32px;
         height: 310px;
@@ -65,5 +89,6 @@
 
     .bottom-bg {
         @apply absolute bottom-0 left-0 z-0 w-fit;
+        margin-bottom: 24vh;
     }
 </style>

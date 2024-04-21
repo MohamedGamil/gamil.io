@@ -1,10 +1,33 @@
 <script lang="ts">
+    import { onMount } from "svelte";
+    import { introCompleted } from "../lib/store";
+
+    onMount(() => {
+        introCompleted.subscribe((introHasCompleted) => {
+            // console.info('Quote', {introHasCompleted});
+
+            if (false === introHasCompleted) {
+                return;
+            }
+
+            new window.Termynal("#quoteTermynal");
+        });
+    });
 </script>
 
-<div class="container-boxed no-select relative isolate px-6 pt-1 lg:px-8">
-    <div class="pt-24 _sm:pt-36 _lg:pt-40 w-9/12 mx-auto">
+<div class="container-boxed no-select relative isolate px-6 pt-1 lg:px-12">
+    <div class="pt-24 _sm:pt-36 _lg:pt-40 w-10/12 mx-auto">
         <div class="quote-body quote-body-top">
-            Truth can only be found in one place: the code.
+            <!-- data-ty-cursor="█" -->
+            <div
+                id="quoteTermynal"
+                class="simple-termynal"
+                data-termynal
+                data-ty-startDelay="600"
+                data-ty-lineDelay="600"
+                data-ty-typeDelay="44">
+                <span data-ty="input" data-ty-prompt="">Truth can only be found in one place: the code.</span>
+            </div>
         </div>
         <div class="quote-body quote-body-bottom">
             - Robert C. Martin

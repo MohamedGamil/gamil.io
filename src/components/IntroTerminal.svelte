@@ -32,8 +32,8 @@
     const skipIntroHandler = (event: any) => {
         event.preventDefault();
         clearTimeout(introTimer);
-        skipIntro();
         hideSkipIntro();
+        skipIntro();
         enableAutoSkip();
     };
 
@@ -71,7 +71,7 @@
             return setTimeout(() => skipper(true), 650);
         }
 
-        introTimer = setTimeout(() => skipper(), 3600);
+        introTimer = setTimeout(() => skipper(), 4600);
     });
 </script>
 
@@ -97,7 +97,7 @@
             <span data-ty="input">npm run start</span>
             <span data-ty data-ty-delay="200">Bundling...</span>
             <span data-ty="progress" data-ty-progressLength="22"></span>
-            <span data-ty="input" data-ty-prompt="➡️" class="text-orange-400 magic-hover">
+            <span data-ty="input" data-ty-prompt=" " class="text-orange-400 magic-hover">
                 Serving gamil.io v{currentVersion}
             </span>
         </div>

@@ -1,6 +1,8 @@
 <script lang="ts">
     import SectionHeader from './common/SectionHeader.svelte';
 
+    export let full: boolean = false;
+
     const data: any[] = [
         {
             figure: '',
@@ -48,7 +50,9 @@
 </script>
 
 <div class="container-boxed no-select relative isolate px-6 pt-1 lg:px-8">
+    {#if false === full}
     <SectionHeader title='Projects' href='/works' />
+    {/if}
 
     <div class="cards">
         {#each data as item}

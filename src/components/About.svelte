@@ -7,15 +7,16 @@
 
 
 <div class="container-boxed no-select relative isolate px-6 pt-1 pb-4 lg:px-8">
-    <SectionHeader title='About' link={false} />
+    <SectionHeader title={full ? 'Whoami' : 'About'} link={false} />
     <div class="flex gap-x-10">
         <div class="flex flex-col gap-y-8">
             <div class="about-content text-second _text-justify">
                 <p>
-                    Hi there! I'm Mohamed Gamil.
+                    <!-- Hi there! I'm Mohamed Gamil. -->
+                    Hello! I'm Mohamed Gamil.
                 </p>
                 <p>
-                    A full-stack developer from Cairo, Egypt. I love building complete digital solutions from scratch, turning them into clean, modern websites that users enjoy.
+                    A full-stack developer based in Cairo, Egypt. I love building complete digital solutions from scratch, turning them into clean, modern websites that users enjoy.
                 </p>
                 <p>
                     With more than ten years of experience driven by my passion for development, I'm really good at creating practical, user-friendly websites based on business needs. I've helped lots of companies get started and improve their online presence.

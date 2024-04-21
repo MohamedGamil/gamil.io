@@ -10,7 +10,7 @@
     <div class="container-boxed no-select relative isolate px-6 pt-1 pb-4 lg:px-8 flex justify-between gap-x-4">
         <div class="w-8/12">
             <div class="brand-wrap">
-                <Brand short={true} />
+                <Brand />
                 <!-- <strong class="contact-email">hi@gamil.io</strong> -->
             </div>
             <p class="footer-caption">

@@ -14,9 +14,9 @@
 <!-- <Hero /> -->
 <!-- <Works /> -->
 <div class="pt-28"></div>
-<PageHeader title='About' subtitle='My journey in a brief' />
+<PageHeader title='Projects' subtitle='Overview of current and completed projects' />
 
-<About full={true} />
+<Works full={true} />
 <Skills />
 
 <style>

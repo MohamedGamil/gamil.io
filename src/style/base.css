@@ -11,7 +11,7 @@
     --root-container-max-width: 1366px;
     --container-max-width: 1086px;
     --animate-duration: 0.8s;
-    --animate-delay: 1s;
+    --animate-delay: 0.87s;
 
     font-family: 'Fira Code', 'Fira Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     /* font-size: 16px; */
@@ -39,7 +39,8 @@ body {
     overflow-y: hidden !important;
     overflow-x: hidden !important;
     cursor: none !important;
-    padding: 0; margin: 0;
+    padding: 0;
+    margin: 0;
     background: var(--color-bg);
     /* background: linear-gradient(to top right, #262837, var(--color-bg)); */
     width: 100%;
@@ -80,7 +81,8 @@ body #magicPointer.pointer-overlay {
     transition: all .2s;
 }
 
-.no-select, .fx {
+.no-select,
+.fx {
     user-select: none;
 }
 
@@ -114,11 +116,7 @@ body #magicPointer.pointer-overlay {
    = =================== */
 
 .cta {
-    @apply font-medium transition-all
-        hover:bg-slate-700
-        focus-visible:outline
-        focus-visible:outline-2
-        focus-visible:outline-offset-2;
+    @apply font-medium transition-all hover:bg-slate-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
 
     font-size: 16px;
     font-weight: 500;
@@ -129,10 +127,12 @@ body #magicPointer.pointer-overlay {
     box-sizing: border-box;
 }
 
+.page-header,
 .section-header {
     @apply relative pt-12 pb-8 flex items-center;
 }
 
+.page-title,
 .section-title {
     @apply relative flex-grow;
 
@@ -145,6 +145,7 @@ body #magicPointer.pointer-overlay {
         background-color: var(--color-prime);
     }
 
+    h1,
     h2 {
         @apply pr-3 w-fit relative z-10 font-medium lowercase;
         font-size: 32px;
@@ -156,6 +157,21 @@ body #magicPointer.pointer-overlay {
             color: var(--color-prime);
         }
     }
+
+    &.page-title::after {
+        display: none;
+    }
+
+    &.page-title h1::before,
+    &.page-title h1::before {
+        content: "/";
+    }
+}
+
+.page-subtitle {
+    @apply pt-2;
+    font-size: 16px;
+    color: var(--color-second);
 }
 
 .section-header.has-link .section-title::after {
@@ -315,5 +331,53 @@ body #magicPointer.pointer-overlay {
     to {
         transform: scale(1.9);
         opacity: 0;
+    }
+}
+
+@keyframes glitch {
+    2%,
+    64% {
+        transform: translate(2px, 0) skew(0deg);
+    }
+
+    4%,
+    60% {
+        transform: translate(-2px, 0) skew(0deg);
+    }
+
+    62% {
+        transform: translate(0, 0) skew(5deg);
+    }
+}
+
+@keyframes glitchTop {
+    2%,
+    64% {
+        transform: translate(2px, -2px);
+    }
+
+    4%,
+    60% {
+        transform: translate(-2px, 2px);
+    }
+
+    62% {
+        transform: translate(13px, -1px) skew(-13deg);
+    }
+}
+
+@keyframes glitchBotom {
+    2%,
+    64% {
+        transform: translate(-2px, 0);
+    }
+
+    4%,
+    60% {
+        transform: translate(-2px, 0);
+    }
+
+    62% {
+        transform: translate(-22px, 5px) skew(21deg);
     }
 }

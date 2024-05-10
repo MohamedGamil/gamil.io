@@ -9,6 +9,7 @@ export const projects = readable([
         figure: '/shots/glasshub.jpeg',
         title: 'GlassHUB',
         slug: 'glasshub',
+        url: 'https://glasshub.ai',
         desc: 'A platform revolutionizing supply chain regulations, management, and solutions.',
         tags: [
             {
@@ -29,6 +30,7 @@ export const projects = readable([
         figure: '/shots/bokdoc.jpg',
         title: 'BokDoc',
         slug: 'bokdoc',
+        url: 'https://bokdoc.com',
         desc: 'The first platform in Egypt and the MENA region for medical procedures and surgeries.',
         tags: [
             {
@@ -49,6 +51,7 @@ export const projects = readable([
         figure: '/shots/appbear.png',
         title: 'AppBear',
         slug: 'appbear',
+        url: 'https://appbear.io',
         desc: 'A no-code WordPress to customizable mobile app builder.',
         tags: [
             {

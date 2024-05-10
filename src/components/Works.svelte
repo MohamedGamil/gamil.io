@@ -57,8 +57,8 @@
                 </p>
             </div>
             <footer class="card-footer">
-                <a href="#" on:click="{(e) => goToProject(e, item.slug)}" class="cta magic-hover">
-                    Read More
+                <a href="{item.url}" target="_blank" class="cta magic-hover">
+                    Learn More
                 </a>
             </footer>
         </div>

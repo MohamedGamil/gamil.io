@@ -33,11 +33,13 @@
                 <p>
                     I'm available for full-time roles, freelance gigs, and hourly consulting services. Please don't hesitate to contact me if you have any projects, requests, or questions!
                 </p>
+                {#if full}
                 <p>
                     Feel free to reach out via email at
                     <a href="mailto:{maskedEmailValue}" target="_blank" class="d-inline-block text-prime magic-hover">hi@gamil.io</a>
                     or connect with me on LinkedIn. I typically respond within 24 hours.
                 </p>
+                {/if}
             </div>
             {#if false === full}
             <div class="contact-cta">

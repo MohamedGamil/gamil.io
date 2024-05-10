@@ -42,9 +42,9 @@
                     >home</a
                 >
                 <a use:link use:active
-                    href="/works"
+                    href="/portfolio"
                     class="text-sm font-semibold leading-6 magic-hover"
-                    >works</a
+                    >portfolio</a
                 >
                 <a use:link use:active
                     href="/about"

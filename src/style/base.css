@@ -204,6 +204,21 @@ body #magicPointer.pointer-overlay {
 .card-figure {
     @apply overflow-hidden;
     border-radius: 8px 8px 0 0;
+
+    &, img {
+        @apply w-full bg-slate-600;
+        transition: 0.3s ease-in-out all;
+        max-height: 184px;
+        min-height: 184px;
+    }
+
+    img {
+        @apply object-cover object-center grayscale opacity-60;
+    }
+
+    &:hover img {
+        @apply grayscale-0 opacity-100;
+    }
 }
 
 .card-title {

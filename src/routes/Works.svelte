@@ -14,9 +14,17 @@
 <!-- <Hero /> -->
 <!-- <Works /> -->
 <div class="pt-28"></div>
-<PageHeader title='Projects' subtitle='Overview of current and completed projects' />
+<PageHeader title='Portfolio' subtitle='Overview of ongoing and completed projects' />
 
 <Works full={true} />
+
+<PageHeader title='Legacy-Projects' subtitle='Overview of older and legacy projects that were completed or never seen the market' />
+<div class="container-boxed no-select relative isolate px-6 !pt-0 !mt-0 lg:px-8">
+    <blockquote class="font-bold text-second -mt-8 pl-3 border-l-4 border-slate-600">
+        More projects will be added very soon…
+    </blockquote>
+</div>
+
 <Skills />
 
 <style>

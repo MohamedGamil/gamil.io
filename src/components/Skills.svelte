@@ -110,15 +110,17 @@
                     </h3>
                     <div class="card-content border-top">
                         <!-- <code>NeoVim</code> -->
+                        <code>Figma</code>
                         <code>VSCode</code>
                         <!-- <code>ChatGPT-4</code> -->
                         <code>Docker</code>
                         <code>Linux</code>
+                        <code>tmux</code>
                         <code>Git</code>
                         <code>NodeJS</code>
                         <code>Deno</code>
                         <code>Yarn</code>
-                        <code>Figma</code>
+                        <!-- <code>Bun</code> -->
                         <!-- <code>Firebase</code> -->
                     </div>
                 </div>

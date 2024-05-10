@@ -26,7 +26,9 @@
 
 
 <div class="container-boxed no-select relative isolate px-6 pt-1 pb-4 lg:px-8">
+    {#if false === full}
     <SectionHeader title='Contact' link={false} />
+    {/if}
     <div class="flex gap-x-10 justify-between">
         <div class="flex flex-col gap-y-8 w-8/12">
             <div class="contact-content text-second _text-justify">

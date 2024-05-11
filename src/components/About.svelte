@@ -30,7 +30,7 @@
                 {/if}
             </div>
         </div>
-        <div class="about-bg">
+        <div class="about-bg hidden lg:block">
             <svg width="327" height="276" viewBox="0 0 327 276" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="2" cy="2" r="2" fill="#7191AB"/>
                 <circle cx="22" cy="2" r="2" fill="#7191AB"/>

@@ -6,8 +6,8 @@
 </script>
 
 <div class="container-boxed no-select relative isolate px-6 pt-1 lg:px-8">
-    <div class="flex justify-between">
-        <div class="pt-44 _sm:pt-36 _lg:pt-40 w-7/12">
+    <div class="flex flex-col justify-between lg:flex-row">
+        <div class="pt-44 _sm:pt-36 _lg:pt-40 w-full lg:w-7/12">
             <div class="_text-center">
                 <h1 class="text-2xl font-semibold tracking-tight lg:pr-10">
                     I’m a
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="pt-28 _sm:pt-36 _lg:pt-28 w-5/12 relative">
+        <div class="pt-28 _sm:pt-36 _lg:pt-28 w-full lg:w-5/12 relative">
             <div class="personal-pic px-4 relative z-0">
                 <img class="block" src={PersonalPic} alt="Mohamed Gamil">
                 <div class="working-status">

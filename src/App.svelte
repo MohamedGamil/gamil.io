@@ -79,12 +79,12 @@
 <main>
     <IntroTerminal />
     <div class="landing-wrap" bind:this={landingWrap}>
-        <SideWrapLeft/>
+        <SideWrapLeft />
         <div class="landing-inner-wrap">
             <Header />
             <Router {routes} on:routeLoading={routeEvent} on:routeLoaded={routeEvent} />
             <Footer />
         </div>
-        <SideWrapRight/>
+        <SideWrapRight />
     </div>
 </main>

@@ -33,7 +33,7 @@
 }
 
 .side-wrap {
-    @apply fixed z-50 top-0 overflow-hidden;
+    @apply fixed z-50 top-0 overflow-hidden hidden xl:block;
     min-width: 120px;
 }
 

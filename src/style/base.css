@@ -396,3 +396,36 @@ body #magicPointer.pointer-overlay {
         transform: translate(-22px, 5px) skew(21deg);
     }
 }
+
+
+/* = ===================
+   = Responsive
+   = =================== */
+
+@media (max-width: 768px) {
+    .page-title, .section-title {
+
+        &::after {
+            width: 100%;
+        }
+    }
+
+    .cards {
+        grid-template-columns: 100fr;
+
+        &.cols-4 {
+            grid-template-columns: 100fr;
+        }
+    }
+}
+
+/*
+576px
+@media (max-width: 360px) {
+    .page-title, .section-title {
+
+        &::after {
+            width: 100%;
+        }
+    }
+} */

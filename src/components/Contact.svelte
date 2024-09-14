@@ -6,8 +6,8 @@
 
     export let full: boolean = false;
 
-    const contactEmailAddress = import.meta.env.VITE_CONTACT_EMAIL_ADDRESS ?? "hi@gamil.io";
-    const maskedEmailValue = "hi@gamil.io";
+    const contactEmailAddress = import.meta.env.VITE_CONTACT_EMAIL_ADDRESS ?? "gamil@pixelbase.io";
+    const maskedEmailValue = "gamil@pixelbase.io";
     let displayedEmail: string = maskedEmailValue;
 
     const handleMailSend = (event: any) => {
@@ -43,7 +43,7 @@
                             href="mailto:{maskedEmailValue}"
                             target="_blank"
                             class="d-inline-block text-prime magic-hover"
-                            >hi@gamil.io</a
+                            >gamil@pixelbase.io</a
                         >
                         or connect with me on LinkedIn. I typically respond within
                         24 hours.

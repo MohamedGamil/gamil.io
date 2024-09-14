@@ -11,7 +11,7 @@
         <div class="w-8/12">
             <div class="brand-wrap">
                 <Brand />
-                <!-- <strong class="contact-email">hi@gamil.io</strong> -->
+                <!-- <strong class="contact-email">gamil@pixelbase.io</strong> -->
             </div>
             <p class="footer-caption">
                 Software engineer and full-stack developer.
